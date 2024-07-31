@@ -5,18 +5,18 @@ import "fmt"
 type HeapNode struct {
 	score1, score2 int
 }
-type PriorityQueue struct {
+type CustomPriorityQueue struct {
 	data   []HeapNode
 	length int
 	cap    int
 }
 
-func NewPriorityQueue(cap int) *PriorityQueue {
-	return &PriorityQueue{data: make([]HeapNode, 0), length: 0, cap: cap}
+func NewCustomPriorityQueue(cap int) *CustomPriorityQueue {
+	return &CustomPriorityQueue{data: make([]HeapNode, 0), length: 0, cap: cap}
 }
 
 // Enqueue (We have to retain the property of heap for each insertion/deletion)
-func (pq *PriorityQueue) Enqueue(hn HeapNode) bool {
+func (pq *CustomPriorityQueue) Enqueue(hn HeapNode) bool {
 	if pq.length == pq.cap {
 		return false
 	}
@@ -36,7 +36,7 @@ func (pq *PriorityQueue) Enqueue(hn HeapNode) bool {
 }
 
 // Dequeue (We have to retain the property of heap for each insertion/deletion)
-func (pq *PriorityQueue) Dequeue() (HeapNode, bool) {
+func (pq *CustomPriorityQueue) Dequeue() (HeapNode, bool) {
 	if pq.length == 0 {
 		return HeapNode{}, false
 	}
@@ -77,7 +77,7 @@ func (pq *PriorityQueue) Dequeue() (HeapNode, bool) {
 	return res, true
 }
 
-// Create a min heap (PriorityQueue) of HeapNode with priority of score1+score2
+// Create a min heap (CustomPriorityQueue) of HeapNode with priority of score1+score2
 func main() {
 	/*A heap is just a complete binary tree.
 	A min heap have its each node's value lesser than its decendent
@@ -88,7 +88,7 @@ func main() {
 			and parent @ floor(i/2) index.
 	Inserting/Deleting can be done in O(log(N)) time
 	*/
-	pq := NewPriorityQueue(5)
+	pq := NewCustomPriorityQueue(5)
 	pq.Enqueue(HeapNode{1, 0})
 	fmt.Println(pq.data)
 	pq.Enqueue(HeapNode{2, 1})
