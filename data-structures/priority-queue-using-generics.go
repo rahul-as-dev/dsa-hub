@@ -24,7 +24,7 @@ func (h *Heap[T]) Push(v T) {
 // Assume other values are already in the correct position in the heap except for i
 func (h *Heap[T]) heapifyUp(i int) {
 	for h.comp(h.data[parentIndex(i)], h.data[i]) {
-		h.swap(i, parentIndex(i))
+		h.swaps(i, parentIndex(i))
 		i = parentIndex(i)
 	}
 }
@@ -37,7 +37,7 @@ func (h *Heap[T]) Pop() (T, bool) {
 		return val, false
 	}
 	val = h.data[0]
-	h.swap(0, h.Size()-1)
+	h.swaps(0, h.Size()-1)
 	h.data = h.data[:h.Size()-1]
 	h.heapifyDown(0)
 
@@ -47,7 +47,7 @@ func (h *Heap[T]) Pop() (T, bool) {
 // heapifyDown moves the value at index i down to its correct position in the heap
 // Assume the left and right branch are already in the correct position in the heap except for i
 //
-//	assumes that the binary trees rooted at LEFT.i/ and RIGHT.i/ are max- heaps, but that AŒi􏰌 might be smaller than its children, thus violating the max-heap property
+//	assumes that the binary trees rooted at LEFT.i/ and RIGHT.i/ are max- heaps, but that might be smaller than its children, thus violating the max-heap property
 func (h *Heap[T]) heapifyDown(i int) {
 	l, r := leftChildIndex(i), rightChildIndex(i)
 	largest := i
@@ -58,13 +58,13 @@ func (h *Heap[T]) heapifyDown(i int) {
 		largest = r
 	}
 	if largest != i {
-		h.swap(i, largest)
+		h.swaps(i, largest)
 		h.heapifyDown(largest)
 	}
 }
 
 // swap swaps the values at indices i and j
-func (h *Heap[T]) swap(i, j int) {
+func (h *Heap[T]) swaps(i, j int) {
 	h.data[i], h.data[j] = h.data[j], h.data[i]
 }
 
