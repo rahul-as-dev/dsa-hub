@@ -81,7 +81,9 @@ func (gpq *GenericPriorityQueue[T]) heapifyDownwards(i int) {
 //		i = largest
 //	}
 //}
-
+func (gpq *GenericPriorityQueue[T]) Peek() T {
+	return gpq.data[0]
+}
 func main() {
 	type Item struct {
 		score1 int
