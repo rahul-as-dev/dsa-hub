@@ -1,4 +1,4 @@
-package main
+package data_structures
 
 import "fmt"
 
@@ -78,7 +78,7 @@ func (pq *CustomPriorityQueue) Dequeue() (HeapNode, bool) {
 }
 
 // Create a min heap (CustomPriorityQueue) of HeapNode with priority of score1+score2
-func main() {
+func Main3() {
 	/*A heap is just a complete binary tree.
 	A min heap have its each node's value lesser than its decendent
 	*/

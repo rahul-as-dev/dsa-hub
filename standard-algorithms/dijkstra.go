@@ -1,7 +1,8 @@
-package main
+package standard_algorithms
 
 import (
 	"fmt"
+	"github.com/rahul-as-dev/algo-commons/data-structures"
 	"math"
 )
 
@@ -37,7 +38,7 @@ func createGraph() *map[*Node][]*Edge {
 	graph[nodeD] = []*Edge{}
 	return &graph
 }
-func main() {
+func Main7() {
 	graph := createGraph()
 	//visited := make(map[Node]bool)
 	//ans := dijkstra(graph, visited, Node{Name: "A"}, Node{Name: "D"})
@@ -82,7 +83,7 @@ func main() {
 func DijkstraUsingPQ(graph *map[*Node][]*Edge, source *Node) map[*Node]int {
 	nodes := len(*graph)
 	res := make(map[*Node]int, nodes)
-	pq := NewGenericPriorityQueue[*Node](func(n1, n2 *Node) bool {
+	pq := data_structures.NewGenericPriorityQueue[*Node](func(n1, n2 *Node) bool {
 		return n1.score < n2.score
 	})
 	source.score = 0

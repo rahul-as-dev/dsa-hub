@@ -1,11 +1,11 @@
-package main
+package data_structures
 
 import (
 	"fmt"
 	"math/rand/v2"
 )
 
-func main() {
+func Main6() {
 	var s []int
 	s = stackExample(s)
 	s1 := make([]int, 0, 10)

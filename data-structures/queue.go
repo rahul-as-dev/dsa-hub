@@ -1,4 +1,4 @@
-package main
+package data_structures
 
 import (
 	"fmt"
@@ -8,7 +8,7 @@ import (
 /*
 *
  */
-func main() {
+func Main5() {
 	var q []int
 	q = queueExample(q)
 	/*allocates an underlying array

@@ -1,4 +1,4 @@
-package main
+package data_structures
 
 import (
 	"container/heap"
@@ -39,7 +39,7 @@ func (pq *PriorityQueue) Pop() interface{} {
 	return item
 }
 
-func main() {
+func Main4() {
 	pq := &PriorityQueue{}
 	heap.Push(pq, &Item{value: 100, priority: 10})
 

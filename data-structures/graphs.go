@@ -1,4 +1,4 @@
-package main
+package data_structures
 
 type graphType string
 
@@ -31,4 +31,7 @@ func SampleDirectedWeightedGraph(nodeEle interface{}) *Node {
 		Children: nil,
 	}
 	return root
+}
+func Main2() {
+
 }

@@ -1,4 +1,4 @@
-package main
+package data_structures
 
 import "fmt"
 
@@ -60,31 +60,32 @@ func (gpq *GenericPriorityQueue[T]) heapifyDownwards(i int) {
 	}
 }
 
-//func (gpq *GenericPriorityQueue[T]) heapifyDownwards(i int) {
-//	for {
-//		leftInd, rightInd := 2*i+1, 2*i+2
-//		largest := i
+//	func (gpq *GenericPriorityQueue[T]) heapifyDownwards(i int) {
+//		for {
+//			leftInd, rightInd := 2*i+1, 2*i+2
+//			largest := i
 //
-//		if leftInd < gpq.length && gpq.compare(gpq.data[leftInd], gpq.data[largest]) {
-//			largest = leftInd
+//			if leftInd < gpq.length && gpq.compare(gpq.data[leftInd], gpq.data[largest]) {
+//				largest = leftInd
+//			}
+//
+//			if rightInd < gpq.length && gpq.compare(gpq.data[rightInd], gpq.data[largest]) {
+//				largest = rightInd
+//			}
+//
+//			if largest == i {
+//				break
+//			}
+//
+//			gpq.data[i], gpq.data[largest] = gpq.data[largest], gpq.data[i]
+//			i = largest
 //		}
-//
-//		if rightInd < gpq.length && gpq.compare(gpq.data[rightInd], gpq.data[largest]) {
-//			largest = rightInd
-//		}
-//
-//		if largest == i {
-//			break
-//		}
-//
-//		gpq.data[i], gpq.data[largest] = gpq.data[largest], gpq.data[i]
-//		i = largest
 //	}
-//}
 func (gpq *GenericPriorityQueue[T]) Peek() T {
 	return gpq.data[0]
 }
-func main() {
+
+func Main1() {
 	type Item struct {
 		score1 int
 		score2 int

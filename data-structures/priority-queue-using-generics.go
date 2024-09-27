@@ -1,4 +1,4 @@
-package main
+package data_structures
 
 // Heap is a binary max heap in generic way
 // comp is a function that compares two values and returns true if a is smaller than b
